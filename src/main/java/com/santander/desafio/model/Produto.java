@@ -1,5 +1,7 @@
 package com.santander.desafio.model;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
@@ -18,6 +20,7 @@ public class Produto {
 
     @Positive
     private double valor;
+
 
     // Getters and Setters
     public Long getId() { return id; }
