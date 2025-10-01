@@ -2,18 +2,20 @@ package com.santander.desafio.controller;
 
 import com.santander.desafio.service.ContaService;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 
 import java.math.BigDecimal;
 
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@WebMvcTest(ContaController.class)
+@SpringBootTest
+@AutoConfigureMockMvc
 public class ContaControllerTest {
 
     @Autowired
@@ -33,7 +35,7 @@ public class ContaControllerTest {
 
     @Test
     public void testConsultarSaldo() throws Exception {
-        Mockito.when(contaService.consultarSaldo(1L)).thenReturn(new BigDecimal("250.00"));
+        when(contaService.consultarSaldo(1L)).thenReturn(new BigDecimal("250.00"));
 
         mockMvc.perform(get("/conta/saldo")
                 .param("id", "1"))

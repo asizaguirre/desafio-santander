@@ -1,20 +1,23 @@
 package com.santander.desafio.model;
 
+import jakarta.persistence.*;
 import java.math.BigDecimal;
 
+@Entity
 public class Conta {
 
-/*
- *  Inicialização segura do saldo
+    /*
+     * Inicialização segura do saldo
+     * Validação básica nos métodos depositar e pagar
+     * Construtores para flexibilidade na criação de objetos
+     */
 
-    Validação básica nos métodos depositar e pagar
-
-    Construtores para flexibilidade na criação de objetos
- */
-
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String titular;
+
     private BigDecimal saldo;
 
     // Construtor padrão
