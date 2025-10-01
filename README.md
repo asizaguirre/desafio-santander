@@ -1,22 +1,40 @@
-# 💼 Desafio Santander
+# Desafio Santander – API Bancária
 
-API RESTful desenvolvida em Java com Spring Boot para o desafio técnico do Santander. A aplicação gerencia usuários, produtos e compras, com autenticação e documentação via Swagger.
+Este projeto é uma API RESTful desenvolvida em Java com Spring Boot para simular operações bancárias básicas:
 
-## 🚀 Tecnologias utilizadas
+-  Depositar dinheiro
+-  Consultar saldo
+-  Pagar contas
+
+##  Tecnologias
 
 - Java 17
 - Spring Boot
-- Spring Data JPA
-- Spring Security
-- H2 Database
-- Swagger (OpenAPI)
+- JPA / Hibernate
+- H2 Database (para testes)
 - Maven
-- JUnit 5 + Mockito
 
-## 🛠️ Como executar localmente
+##  Endpoints
+
+| Método | URL               | Parâmetros           | Descrição                   |
+|--------|-------------------|----------------------|-----------------------------|
+| POST   | /conta/depositar  | id, valor            | Deposita valor na conta     |
+| GET    | /conta/saldo      | id                   | Consulta saldo da conta     |
+| POST   | /conta/pagar      | id, valor            | Realiza pagamento           |
+
+##  Testes
+
+Os testes unitários estão em `ContaControllerTest.java`, usando JUnit e Mockito.
+
+##  Estrutura
+
+- `model/Conta.java`
+- `service/ContaService.java`
+- `controller/ContaController.java`
+- `repository/ContaRepository.java`
+- `test/controller/ContaControllerTest.java`
+
+##  Execução
 
 ```bash
-git clone https://github.com/asizaguirre/desafio-santander.git
-cd desafio-santander
-mvn clean install
 mvn spring-boot:run
